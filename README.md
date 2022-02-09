@@ -1,4 +1,4 @@
 # attendance
 Streak is most!
 
-##attendence
+## attendence
