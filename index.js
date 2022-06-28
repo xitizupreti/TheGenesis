@@ -1,5 +1,3 @@
 <script>
-  srjal website
-aliexpress
-dropshipping project
+Kshitizupreti.com.np mobile responsive contact middle ma ani tidio chat
   </script>
