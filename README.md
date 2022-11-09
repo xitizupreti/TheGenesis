@@ -10,3 +10,5 @@ ToDo List             -> Material UI Icon & Title          <br/>
 Counter App           -> Material UI Icon & Title          <br/>
 HTML CSS TEST         -> Paras clock                       <br/>
 Simple Form           -> Buttons                           <br/>
+Notes                 -> Edit                              <br/>
+Recipe                ->                                   <br/>
