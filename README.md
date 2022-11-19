@@ -13,3 +13,4 @@ Simple Form           -> Buttons                           <br/>
 Notes                 -> Edit                              <br/>
 Recipe                ->                                   <br/>
 Youtube               ->                                        
+Quiz
