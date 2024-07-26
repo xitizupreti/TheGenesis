@@ -1,6 +1,5 @@
 ## LIST <br/>
 kshitizupreti.com.np  -> Keep updating                     <br/>
-Tuition               -> COMPLETE IT                       <br/>
 Calc-JS               -> Scientific                        <br/>
 Slot-Machine          -> Add Rules,Animations,Betting(x3)  <br/>
 ToDo List             -> Material UI Icon & Title          <br/>
