@@ -13,7 +13,7 @@ Redux Start           -> Redux Advanced                    <br/>
 Java Start            -> 7th Sem                           <br/>
 Next Start            -> Next JS                           <br/>
 Node Start            -> Node                              <br/>
-deew                  -> React+PHP                         <br/>
+Everything to Next.js -> React+PHP                         <br/>
 
 
 ... Add new repos...
