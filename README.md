@@ -1,6 +1,6 @@
 ## LIST <br/>
 kshitizupreti.com.np  -> Keep updating                     <br/>
-Slot-Machine          -> Add Rules,Animations,Betting(x3)  <br/>
+Slot-Machine          -> Animations, Button Clicked, Hide Deposits and Combine components slot  <br/>
 Captain America       -> 30 days CSS Challenge from Starts <br/>
 <br/>
 Redux Start           -> Redux Advanced                    <br/>
