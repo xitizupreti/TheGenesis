@@ -20,7 +20,7 @@ export default function HomePage() {
     <>
       {/* Cover + profile, like a social profile header */}
       <section className="relative">
-        <div className="relative h-[52vh] min-h-[280px] w-full overflow-hidden sm:h-[68vh] sm:max-h-[720px]">
+        <div className="relative h-[44svh] min-h-[240px] w-full overflow-hidden sm:h-[56svh] lg:h-[68svh] lg:max-h-[720px]">
           <Image
             src="/images/cover.webp"
             alt="The Genesis performing live on stage"
@@ -32,9 +32,10 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-linear-to-b from-ink/10 via-transparent to-ink" />
         </div>
 
-        <Container className="relative -mt-20 sm:-mt-24">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:gap-8">
-            <div className="relative h-36 w-36 shrink-0 overflow-hidden rounded-full border-4 border-ink shadow-2xl ring-2 ring-wine sm:h-44 sm:w-44">
+        <Container className="relative -mt-16 sm:-mt-20 lg:-mt-24">
+          {/* Phones/tablets: centred profile stack. Laptops+: one row */}
+          <div className="flex flex-col items-center gap-5 text-center lg:flex-row lg:items-end lg:gap-8 lg:text-left">
+            <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-ink shadow-2xl ring-2 ring-wine sm:h-40 sm:w-40 lg:h-44 lg:w-44">
               <Image
                 src="/images/group.webp"
                 alt="The Genesis band members together"
@@ -44,14 +45,14 @@ export default function HomePage() {
                 className="object-cover object-[50%_55%]"
               />
             </div>
-            <div className="flex-1 pb-1">
+            <div className="min-w-0 flex-1 pb-1">
               <p className="font-heading text-xs uppercase tracking-[0.4em] text-rose">
                 Women-led band 💛
               </p>
-              <h1 className="mt-2 font-display text-5xl leading-none sm:text-7xl">
+              <h1 className="mt-2 font-display text-[2.6rem] leading-none min-[400px]:text-5xl sm:text-6xl xl:text-7xl">
                 The Genesis
               </h1>
-              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-ash">
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-ash lg:justify-start">
                 <span className="font-heading uppercase tracking-[0.25em]">
                   {band.shortTagline} ✨
                 </span>
@@ -61,7 +62,7 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
-            <div className="flex flex-col gap-4 pb-1 sm:flex-row sm:items-center md:flex-col md:items-end">
+            <div className="flex flex-col items-center gap-4 pb-1 sm:flex-row lg:flex-col lg:items-end">
               <SocialLinks />
               <ButtonLink href="/contact">
                 Book the band <ArrowRight className="h-4 w-4" />
@@ -93,8 +94,8 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-sm">
-            <div className="absolute -inset-6 -z-10 rounded-full bg-wine/25 blur-3xl" />
+          <div className="relative mx-auto w-full max-w-[18rem] sm:max-w-sm">
+            <div className="absolute inset-0 -z-10 scale-110 rounded-full bg-wine/25 blur-3xl" />
             <Image
               src="/images/logo.webp"
               alt="The Genesis logo"

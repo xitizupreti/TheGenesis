@@ -59,6 +59,32 @@ body::before {
   }
 }
 
+/* Safety net: decorative glows that poke past the edge never cause sideways
+   scrolling on phones. `clip` (unlike `hidden`) keeps the sticky header working. */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* Member photos: full colour on phones/tablets (no hover there). On devices
+   with a mouse they start black & white and light up on hover or focus. */
+.member-photo {
+  transition:
+    filter 500ms ease,
+    transform 500ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .member-photo {
+    filter: grayscale(1);
+  }
+  .member-card:hover .member-photo,
+  .member-card:focus-visible .member-photo {
+    filter: grayscale(0);
+    transform: scale(1.05);
+  }
+}
+
 /* ---------- Splash intro ---------- */
 
 @keyframes splash-grid-drift {
@@ -212,7 +238,9 @@ body::before {
   display: flex;
   white-space: nowrap;
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  /* Spec size, except below ~420px wide where 2.25rem would overflow
+     "THE GENESIS" on small phones */
+  font-size: clamp(min(2.25rem, 8.6vw), 7vw, 4.5rem);
   font-weight: 800;
   /* Rubik Dirt ships one (already heavy) weight — don't let the browser fake-bold it */
   font-synthesis: none;
@@ -284,6 +312,8 @@ body::before {
   color: #e8a3bf;
   font-size: clamp(0.7rem, 1.6vw, 0.95rem);
   font-weight: 600;
+  max-width: 34rem;
+  text-wrap: balance;
   opacity: 0;
   animation: splash-tagline-in 500ms var(--splash-ease) 1.55s both;
 }

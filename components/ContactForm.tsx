@@ -169,7 +169,7 @@ export default function ContactForm() {
                 type="date"
                 value={form.eventDate}
                 onChange={(e) => update("eventDate", e.target.value)}
-                className={`${field} [color-scheme:dark]`}
+                className={`${field} min-h-[50px] [color-scheme:dark]`}
               />
             </div>
             <div>

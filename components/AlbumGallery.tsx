@@ -67,7 +67,7 @@ export default function AlbumGallery({
           role="dialog"
           aria-modal="true"
           aria-label={`${name} — photo ${index + 1} of ${photos.length}`}
-          className="fixed inset-0 z-[100] flex flex-col bg-ink/95 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex h-[100dvh] flex-col bg-ink/95 backdrop-blur-sm"
           onClick={close}
           onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
           onTouchEnd={(e) => {
@@ -80,6 +80,7 @@ export default function AlbumGallery({
           <div className="flex items-center justify-between px-4 py-3 sm:px-6">
             <p className="text-sm text-ash">
               {index + 1} / {photos.length}
+              {photos.length > 1 && <span className="ml-3 text-ash/60 sm:hidden">Swipe ←→</span>}
             </p>
             <button
               type="button"

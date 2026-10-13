@@ -59,7 +59,7 @@ export default async function AlbumPage({ params }: Props) {
             Album · {album.photos.length}{" "}
             {album.photos.length === 1 ? "photo" : "photos"}
           </p>
-          <h1 className="mt-2 font-display text-4xl leading-tight sm:text-6xl">
+          <h1 className="mt-2 font-display text-[2.2rem] leading-tight break-words sm:text-5xl lg:text-6xl">
             {album.name}
           </h1>
         </div>

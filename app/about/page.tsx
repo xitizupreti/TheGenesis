@@ -33,7 +33,7 @@ export default function AboutPage() {
       <section className="py-20 sm:py-24">
         <Container className="grid gap-12 md:grid-cols-[1fr_1.2fr] md:gap-16">
           <div className="relative">
-            <div className="absolute -inset-4 -z-10 rounded-3xl bg-wine/20 blur-2xl" />
+            <div className="absolute inset-0 -z-10 scale-105 rounded-3xl bg-wine/20 blur-2xl" />
             <Image
               src="/images/group.webp"
               alt="The members of The Genesis together in the studio"
@@ -63,7 +63,7 @@ export default function AboutPage() {
               ))}
             </dl>
 
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <span className="font-heading text-sm uppercase tracking-[0.2em] text-ash">
                 Follow us
               </span>
@@ -94,8 +94,8 @@ export default function AboutPage() {
             <p className="mb-3 font-heading text-xs uppercase tracking-[0.35em] text-rose">
               The name
             </p>
-            <h2 className="font-heading text-4xl font-semibold uppercase">
-              Genesis <span className="text-ash">/ˈdʒɛnɪsɪs/</span>
+            <h2 className="font-heading text-3xl font-semibold uppercase sm:text-4xl">
+              Genesis <span className="block text-2xl text-ash sm:inline sm:text-4xl">/ˈdʒɛnɪsɪs/</span>
             </h2>
             <p className="mt-2 font-heading uppercase tracking-[0.2em] text-ash">
               noun · the origin, the beginning

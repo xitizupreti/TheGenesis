@@ -32,7 +32,7 @@ export function SectionHeading({
             {eyebrow}
           </p>
         )}
-        <h2 className="font-heading text-3xl font-semibold uppercase tracking-wide text-bone sm:text-4xl">
+        <h2 className="font-heading text-[1.75rem] leading-tight font-semibold uppercase tracking-wide text-bone sm:text-4xl">
           {title}
         </h2>
       </div>
@@ -102,12 +102,14 @@ export function PageHero({
         className="-z-10 object-cover object-center opacity-30 grayscale"
       />
       <div className="absolute inset-0 -z-10 bg-linear-to-b from-ink/40 via-ink/70 to-ink" />
-      <Container className="py-20 sm:py-28">
+      <Container className="py-14 sm:py-24 lg:py-28">
         <p className="mb-3 font-heading text-xs uppercase tracking-[0.4em] text-rose">
           {eyebrow}
         </p>
-        <h1 className="font-display text-5xl leading-none sm:text-7xl">{title}</h1>
-        {intro && <p className="mt-5 max-w-2xl text-lg text-ash">{intro}</p>}
+        <h1 className="font-display text-[2.6rem] leading-[1.05] break-words min-[400px]:text-5xl sm:text-6xl lg:text-7xl">
+          {title}
+        </h1>
+        {intro && <p className="mt-5 max-w-2xl text-base text-ash sm:text-lg">{intro}</p>}
       </Container>
     </section>
   );
@@ -123,7 +125,7 @@ export function EmptyState({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center rounded-2xl border border-dashed border-line bg-coal/60 px-6 py-14 text-center">
+    <div className="flex flex-col items-center rounded-2xl border border-dashed border-line bg-coal/60 px-5 py-10 text-center sm:px-6 sm:py-14">
       <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-wine-deep/60 text-rose">
         {icon}
       </div>

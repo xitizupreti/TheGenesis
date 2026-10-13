@@ -43,7 +43,7 @@ export default function Navbar() {
             The <span className="text-rose">Genesis</span>
           </Link>
 
-          <ul className="hidden items-center gap-1 md:flex">
+          <ul className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -67,7 +67,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-bone md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-bone lg:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -77,7 +77,7 @@ export default function Navbar() {
       {open && (
         <div
           id="mobile-menu"
-          className="fixed inset-x-0 top-16 bottom-0 z-50 flex flex-col justify-between overflow-y-auto border-t border-line bg-ink px-6 pt-6 pb-10 md:hidden"
+          className="fixed inset-x-0 top-16 bottom-0 z-50 flex flex-col justify-between overflow-y-auto overscroll-contain border-t border-line bg-ink px-6 pt-4 pb-[max(2.5rem,env(safe-area-inset-bottom))] lg:hidden"
         >
           <ul className="flex flex-col">
             {navLinks.map((link) => (
@@ -86,7 +86,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setOpenOn(null)}
                   aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                  className={`block py-4 font-heading text-2xl uppercase tracking-[0.12em] ${
+                  className={`block py-3.5 font-heading text-2xl uppercase tracking-[0.12em] active:text-rose ${
                     isActive(pathname, link.href) ? "text-rose" : "text-bone"
                   }`}
                 >
