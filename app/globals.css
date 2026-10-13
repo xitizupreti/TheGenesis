@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #070507;
+  --color-coal: #110c10;
+  --color-smoke: #1b1419;
+  --color-line: #2a2027;
+  --color-bone: #efe9dd;
+  --color-ash: #a39aa1;
+  --color-wine: #a32a5e;
+  --color-wine-deep: #5c1233;
+  --color-rose: #e46a9c;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-rubik-dirt), var(--font-oswald), sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+  min-height: 100vh;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--color-wine);
+  color: var(--color-bone);
+}
+
+/* Film-grain texture over the whole site */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- Splash intro ---------- */
+
+@keyframes splash-grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 42px 42px;
+  }
+}
+
+@keyframes splash-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes splash-ring {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes splash-first-in {
+  from {
+    transform: scale(0.5);
+    filter: blur(8px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes splash-letter-in {
+  from {
+    transform: translateY(10px);
+    filter: blur(6px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes splash-shine {
+  0% {
+    left: -60%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 130%;
+    opacity: 0;
+  }
+}
+
+@keyframes splash-tagline-in {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.splash-overlay {
+  --splash-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 45%, #3a0b24 0%, #070407 70%);
+  transition:
+    opacity 400ms var(--splash-ease),
+    filter 400ms var(--splash-ease),
+    transform 400ms var(--splash-ease);
+}
+
+.splash-overlay.splash-exiting {
+  opacity: 0;
+  filter: blur(14px);
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+.splash-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(228, 106, 156, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(228, 106, 156, 0.1) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 75%);
+  animation: splash-grid-drift 9s linear infinite;
+}
+
+.splash-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(176, 38, 95, 0.35) 0%,
+    rgba(176, 38, 95, 0.08) 35%,
+    transparent 65%
+  );
+  animation: splash-glow-breathe 2.6s ease-in-out infinite;
+}
+
+.splash-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.splash-word {
+  position: relative;
+  display: flex;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  font-weight: 800;
+  /* Rubik Dirt ships one (already heavy) weight — don't let the browser fake-bold it */
+  font-synthesis: none;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: #f3eee4;
+  text-shadow: 0 0 24px rgba(176, 38, 95, 0.45);
+}
+
+.splash-letter {
+  display: inline-block;
+  opacity: 0;
+}
+
+.splash-first {
+  position: relative;
+  display: inline-block;
+}
+
+.splash-letter-first {
+  animation: splash-first-in 500ms var(--splash-ease) 120ms both;
+}
+
+.splash-ring {
+  position: absolute;
+  inset: -16px -12px;
+  border-radius: 9999px;
+  border: 2px solid rgba(228, 106, 156, 0.9);
+  box-shadow:
+    0 0 18px 4px rgba(176, 38, 95, 0.55),
+    0 0 40px 10px rgba(176, 38, 95, 0.25);
+  opacity: 0;
+  animation: splash-ring 550ms var(--splash-ease) both;
+  pointer-events: none;
+}
+
+.splash-letter-rest {
+  animation: splash-letter-in 420ms var(--splash-ease) both;
+}
+
+.splash-shine-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.splash-shine {
+  position: absolute;
+  top: -30%;
+  left: -60%;
+  width: 35%;
+  height: 160%;
+  transform: skewX(-20deg);
+  background: linear-gradient(
+    115deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  opacity: 0;
+  animation: splash-shine 650ms var(--splash-ease) 1.5s both;
+}
+
+.splash-tagline {
+  margin-top: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: #e8a3bf;
+  font-size: clamp(0.7rem, 1.6vw, 0.95rem);
+  font-weight: 600;
+  opacity: 0;
+  animation: splash-tagline-in 500ms var(--splash-ease) 1.55s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-overlay,
+  .splash-overlay * {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
