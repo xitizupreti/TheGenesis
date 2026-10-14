@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Guitar } from "lucide-react";
-import { band, socials } from "@/lib/band";
-import { videos } from "@/lib/videos";
+import { band } from "@/lib/band";
+import { shortVideos, youtubeVideos } from "@/lib/videos";
 import { pageMetadata } from "@/lib/seo";
-import { ButtonLink, Container, EmptyState, PageHero } from "@/components/ui";
-import VideoGrid from "@/components/VideoGrid";
-import { InstagramIcon, TiktokIcon, YoutubeIcon } from "@/components/icons";
+import { Container, EmptyState, PageHero } from "@/components/ui";
+import VideoGrid, { ShortVideoGrid } from "@/components/VideoGrid";
+import FollowStrip from "@/components/FollowStrip";
+import { YoutubeIcon } from "@/components/icons";
 
 export const metadata: Metadata = pageMetadata({
   title: "Music & Videos",
@@ -38,24 +39,27 @@ export default function MusicPage() {
             ))}
           </div>
 
-          {videos.length > 0 ? (
-            <VideoGrid videos={videos} featureFirst />
-          ) : (
-            <EmptyState icon={<YoutubeIcon className="h-6 w-6" />} title="Videos coming soon">
-              <p>
-                We&apos;re putting our YouTube channel together. Until then, our
-                live clips and reels are on Instagram and TikTok.
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <ButtonLink href={socials.instagram.href} external>
-                  <InstagramIcon className="h-4 w-4" /> Instagram
-                </ButtonLink>
-                <ButtonLink href={socials.tiktok.href} external variant="ghost">
-                  <TiktokIcon className="h-4 w-4" /> TikTok
-                </ButtonLink>
+          <div className="space-y-16">
+            {youtubeVideos.length > 0 && <VideoGrid videos={youtubeVideos} featureFirst />}
+
+            {shortVideos.length > 0 && (
+              <div>
+                <h2 className="mb-6 font-heading text-2xl uppercase tracking-wide">
+                  Reels &amp; TikToks
+                </h2>
+                <ShortVideoGrid videos={shortVideos} />
               </div>
-            </EmptyState>
-          )}
+            )}
+
+            {youtubeVideos.length === 0 && shortVideos.length === 0 && (
+              <EmptyState icon={<YoutubeIcon className="h-6 w-6" />} title="Videos coming soon">
+                We&apos;re putting our videos together — check our socials below in
+                the meantime.
+              </EmptyState>
+            )}
+
+            <FollowStrip />
+          </div>
         </Container>
       </section>
     </>

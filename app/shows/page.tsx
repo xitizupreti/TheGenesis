@@ -13,10 +13,12 @@ export const metadata: Metadata = pageMetadata({
   path: "/shows",
 });
 
+const realShows = shows.filter((s) => !s.demo);
+
 export default function ShowsPage() {
   return (
     <>
-      {shows.length > 0 && <JsonLd data={eventsJsonLd(shows)} />}
+      {realShows.length > 0 && <JsonLd data={eventsJsonLd(realShows)} />}
       <PageHero
         eyebrow="Live"
         title="Shows & Events"

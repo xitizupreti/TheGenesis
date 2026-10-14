@@ -73,7 +73,7 @@ export const members: Member[] = [
     handle: "@srist.shrestha",
   },
   {
-    name: "Reeya",
+    name: "Reeya Prajapati",
     role: "Guitar",
     photo: "/images/members/reeya.webp",
     focus: "50% 30%",
@@ -81,7 +81,7 @@ export const members: Member[] = [
     handle: "@a_vocaddho",
   },
   {
-    name: "k_sus",
+    name: "Susana Kurung",
     role: "Bass",
     photo: "/images/members/ksus.webp",
     focus: "45% 20%",

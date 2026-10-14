@@ -3,12 +3,13 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { band } from "@/lib/band";
 import { getAlbums } from "@/lib/gallery";
 import { todayInNepal } from "@/lib/shows";
-import { videos } from "@/lib/videos";
+import { shortVideos, youtubeVideos } from "@/lib/videos";
 import { ButtonLink, Container, EmptyState, SectionHeading } from "@/components/ui";
 import SocialLinks from "@/components/SocialLinks";
 import MembersGrid from "@/components/MembersGrid";
 import ShowsList from "@/components/ShowsList";
-import VideoGrid from "@/components/VideoGrid";
+import VideoGrid, { ShortVideoGrid } from "@/components/VideoGrid";
+import FollowStrip from "@/components/FollowStrip";
 import AlbumCard from "@/components/AlbumCard";
 import { YoutubeIcon } from "@/components/icons";
 import BookingBand from "@/components/BookingBand";
@@ -140,14 +141,22 @@ export default function HomePage() {
             title="Music & videos"
             action={{ href: "/music", label: "All videos" }}
           />
-          {videos.length > 0 ? (
-            <VideoGrid videos={videos.slice(0, 2)} />
-          ) : (
-            <EmptyState icon={<YoutubeIcon className="h-6 w-6" />} title="Videos coming soon">
-              Our YouTube channel is on the way. Until then, catch our live clips
-              on Instagram and TikTok.
-            </EmptyState>
-          )}
+          <div className="space-y-10">
+            {youtubeVideos.length > 0 ? (
+              <VideoGrid
+                videos={youtubeVideos.slice(0, 2)}
+                featureFirst={youtubeVideos.length === 1}
+              />
+            ) : shortVideos.length > 0 ? (
+              <ShortVideoGrid videos={shortVideos.slice(0, 3)} />
+            ) : (
+              <EmptyState icon={<YoutubeIcon className="h-6 w-6" />} title="Videos coming soon">
+                Our YouTube channel is on the way. Until then, catch our live clips
+                on Instagram and TikTok.
+              </EmptyState>
+            )}
+            <FollowStrip />
+          </div>
         </Container>
       </section>
 

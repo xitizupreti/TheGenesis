@@ -55,3 +55,23 @@ export function TiktokIcon({ className }: IconProps) {
     </Svg>
   );
 }
+
+export function WhatsappIcon({ className }: IconProps) {
+  return (
+    <Svg className={className}>
+      <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+      <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+    </Svg>
+  );
+}
+
+export function GmailIcon({ className }: IconProps) {
+  return (
+    <Svg className={className}>
+      <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" />
+      <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" />
+      <path d="M16 4l-4 4l-4 -4" />
+      <path d="M4 6.5l8 7.5l8 -7.5" />
+    </Svg>
+  );
+}

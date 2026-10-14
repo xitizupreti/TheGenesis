@@ -34,7 +34,8 @@ export const metadata: Metadata = {
     template: `%s — ${SITE_NAME}`,
   },
   applicationName: SITE_NAME,
-  creator: SITE_NAME,
+  creator: "Kshitiz Upreti",
+  authors: [{ name: "Kshitiz Upreti", url: "https://kshitizupreti.com.np" }],
   publisher: SITE_NAME,
   category: "music",
   keywords: [

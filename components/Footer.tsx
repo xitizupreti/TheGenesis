@@ -2,6 +2,17 @@ import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { band, navLinks } from "@/lib/band";
 import SocialLinks from "@/components/SocialLinks";
+import { GmailIcon, InstagramIcon, WhatsappIcon } from "@/components/icons";
+
+const CREDIT = {
+  name: "Kshitiz Upreti",
+  website: "https://kshitizupreti.com.np",
+  links: [
+    { label: "Instagram", href: "https://www.instagram.com/kshitizupreti", Icon: InstagramIcon },
+    { label: "WhatsApp", href: "https://wa.me/9779869547209", Icon: WhatsappIcon },
+    { label: "Email", href: "mailto:upreti.kshitiz.ku@gmail.com", Icon: GmailIcon },
+  ],
+};
 
 export default function Footer() {
   return (
@@ -49,9 +60,36 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-line/60">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-ash/80 sm:px-6">
-          © {new Date().getFullYear()} {band.name}. All rights reserved.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-5 text-center text-xs text-ash/80 sm:px-6 md:flex-row md:justify-between md:text-left">
+          <p>
+            © {new Date().getFullYear()} {band.name}. All rights reserved.
+          </p>
+          <p className="flex items-center gap-3 text-sm">
+            <span>
+              Built by{" "}
+              <a
+                href={CREDIT.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-rose underline decoration-rose/40 underline-offset-4 transition hover:decoration-rose"
+              >
+                {CREDIT.name}
+              </a>
+            </span>
+            {CREDIT.links.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                {...(href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
+                aria-label={`${CREDIT.name} — ${label}`}
+                title={label}
+                className="text-rose transition hover:text-bone"
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
+          </p>
+        </div>
       </div>
     </footer>
   );

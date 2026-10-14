@@ -13,8 +13,8 @@ npm run build    # production build (what Vercel runs)
 | What | File |
 | --- | --- |
 | Band name, tagline, about text, **formed year**, social links, members | `lib/band.ts` |
-| Shows / events | `lib/shows.ts` |
-| YouTube videos | `lib/videos.ts` |
+| Shows / events (delete the `demo: true` placeholder shows before launch) | `lib/shows.ts` |
+| Videos: paste YouTube, Instagram reel or TikTok links | `lib/videos.ts` |
 | Instagram / TikTok / Facebook / YouTube links | `socials` in `lib/band.ts` (YouTube icon shows without a link until set) |
 | Page titles, descriptions, search-engine data | `lib/seo.ts` + `metadata` at the top of each `app/**/page.tsx` |
 | Splash intro text | `components/SplashIntro.tsx` |

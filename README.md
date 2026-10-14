@@ -53,14 +53,14 @@ The band plays **English rock and metal covers**: the songs they grew up on, pla
       <a href="https://www.instagram.com/srist.shrestha/">@srist.shrestha</a>
     </td>
     <td align="center" width="20%">
-      <img src="public/images/members/reeya.webp" alt="Reeya" width="150" /><br/>
-      <b>Reeya</b><br/>
+      <img src="public/images/members/reeya.webp" alt="Reeya Prajapati" width="150" /><br/>
+      <b>Reeya Prajapati</b><br/>
       Guitar<br/>
       <a href="https://www.instagram.com/a_vocaddho/">@a_vocaddho</a>
     </td>
     <td align="center" width="20%">
-      <img src="public/images/members/ksus.webp" alt="k_sus" width="150" /><br/>
-      <b>k_sus</b><br/>
+      <img src="public/images/members/ksus.webp" alt="Susana Kurung" width="150" /><br/>
+      <b>Susana Kurung</b><br/>
       Bass<br/>
       <a href="https://www.instagram.com/k_sus0/">@k_sus0</a>
     </td>
@@ -99,7 +99,7 @@ npm run dev                  # http://localhost:3000
 | --- | --- |
 | Formed year, about text, members, social links | `lib/band.ts` |
 | Shows / events | `lib/shows.ts` |
-| YouTube videos | `lib/videos.ts` |
+| Videos (YouTube, Instagram reels, TikTok links) | `lib/videos.ts` |
 | Gallery: add a folder of photos | `public/gallery/<Album Name>/` |
 | Icons & link-preview image | `npm run brand-assets` |
 
@@ -107,4 +107,10 @@ The full how-to (gallery, contact form, environment variables, SEO steps after d
 
 ---
 
-<p align="center">© The Genesis. All rights reserved.</p>
+<p align="center">
+  © The Genesis. All rights reserved.<br/>
+  Built by <a href="https://kshitizupreti.com.np"><b>Kshitiz Upreti</b></a> ·
+  <a href="https://www.instagram.com/kshitizupreti">Instagram</a> ·
+  <a href="https://wa.me/9779869547209">WhatsApp</a> ·
+  <a href="mailto:upreti.kshitiz.ku@gmail.com">Email</a>
+</p>
